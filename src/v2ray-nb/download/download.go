@@ -7,7 +7,7 @@ import (
 )
 
 
-func download(url, lj string) {
+func Download(url, lj string) {
     res, err := http.Get(url)
     if err != nil {
         panic(err)
