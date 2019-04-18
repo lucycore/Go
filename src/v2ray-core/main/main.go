@@ -20,7 +20,7 @@ func main() {
 		jsonurl := "http://www.lucycore.top/static/pz/v2_gy.json"
 		v2zip := "http://www.lucycore.top/static/v2ray-download/v2rayMac.zip"
 
-		fmt.Println("v2ray Golang macos 内部版本V3.0")
+		fmt.Println("v2ray Golang macos 内部版本V3.1")
 		fmt.Println("适用时间截至2019年5月31日")
 
 		if core.Test_time() {
@@ -32,7 +32,7 @@ func main() {
 				fmt.Println("正在尝试获取配置文件")
 				bdlj,_,_ := core.Get_lj()
 				download.Download(jsonurl,bdlj)
-				core.Start_v2()
+				core.Start_v2(sysname)
 				fmt.Println("已启动v2ray")
 
 			} else {
@@ -67,7 +67,7 @@ func main() {
 		jsonurl := "http://www.lucycore.top/static/pz/v2_gy.json"
 		v2zip := "http://www.lucycore.top/static/v2ray-download/v2rayWin.zip"
 
-		fmt.Println("v2ray Golang windows 内部版本V3.0")
+		fmt.Println("v2ray Golang windows 内部版本V3.1")
 		fmt.Println("适用时间截至2019年5月31日")
 
 		if core.Test_time() {
@@ -79,8 +79,10 @@ func main() {
 				fmt.Println("正在尝试获取配置文件")
 				bdlj,_,_ := core.Get_lj()
 				download.Download(jsonurl,bdlj)
-				core.Start_v2()
+				go core.Rmconfig()
+				core.Start_v2(sysname)
 				fmt.Println("已启动v2ray")
+
 
 			} else {
 
